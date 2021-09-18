@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%=  %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
   </head>
+  <style>
+    .movie-list-wrapper {
+      max-width: 1200px; 
+      margin: 30px auto; 
+    }
+
+    .movie-div {
+      display: inline-block; 
+      margin: 10px; 
+    }
+
+    .movie-image {
+      width: 250px; 
+    }
+
+    .movie-title {
+      font-size: 1rem; 
+      font-style: bold; 
+    }
+
+  </style>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="movie-list-wrapper">
+      <% parsedData.forEach(movie=> { %>
+        <div class="movie-div">
+          <h1 class="movie-title"><%= movie.Title %></h1>
+          <img class="movie-image" src="<%= movie.Poster %>">
+        </div>
+      <% }) %>
+     
+
+    </div>
   </body>
 </html>
