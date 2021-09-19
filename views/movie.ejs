@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,12 +30,10 @@
   </style>
   <body>
     <div class="movie-list-wrapper">
-      <% parsedData.forEach(movie=> { %>
         <div class="movie-div">
-          <h1 class="movie-title"><%= movie.Title %></h1>
-          <a href="<%= /movie/ %><%= movie.imdbID %>"><img class="movie-image" src="<%= movie.Poster %>"></a>
+          <h1 class="movie-title"><%= movieData.Title %></h1>
+          <img class="movie-image" src="<%= movieData.Poster %>" alt="movie title">
         </div>
-      <% }) %>
     </div>
   </body>
 </html>
