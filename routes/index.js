@@ -32,5 +32,18 @@ router.get('/movie/:movieId', (req,res,next)=> {
     })
 })
 
+router.post('/search', (req,res,next)=> {
+  const movieString = encodeURI(req.body.movie)
+  request.get(`${rootUrl}s=${movieString}`, (err, response, data)=> {
+    const movieData = JSON.parse(data)
+    console.log(movieData)
+    if(movieData.Search) {// If there is more than 1 movie like this
+      res.render('index', {parsedData: movieData.Search})
+    } else {  
+      res.render('movie', {movieData})
+    }
+  })
+})
+
 
 module.exports = router;

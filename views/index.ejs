@@ -6,9 +6,14 @@
 
   </head>
   <style>
+    *{
+      padding: 0; 
+      margin: 0;
+    }
+
     .movie-list-wrapper {
       max-width: 1200px; 
-      margin: 30px auto; 
+      margin: 40px auto; 
     }
 
     .movie-div {
@@ -25,8 +30,58 @@
       font-style: bold; 
     }
 
+    .navbar {
+      display: block; 
+      height: 80px; 
+      padding: 10px;
+      width: 100%;  
+      background-color: #efefef;
+      position: relative; 
+    }
+
+    .search-form {
+      position: absolute; 
+      right: 100px; 
+      bottom: 20px; 
+    }
+
+    .search-input {
+      width: 300px;
+      display: inline-block; 
+      outline: none; 
+      border: 1px solid transparent; 
+      border-radius: 5px;
+      padding: 8px; 
+      transition: all .3s; 
+    }
+
+    .search-input:focus{
+      display: inline-block; 
+      border: 1px solid transparent; 
+      outline: none; 
+      background-color: #cdcdcd;
+      padding: 8px; 
+      border-radius: 5px;
+      color: white;
+    }
+
+    .search-submit {
+      padding: 8px 15px 8px 15px; 
+      outline: none; 
+      border-radius: 5px; 
+      border: 1px solid #444; 
+      letter-spacing: 1px;
+    }
+
+
   </style>
   <body>
+    <div class="navbar">
+      <form action="/search" method="post" class="search-form">
+        <input type="text" class="search-input" name="movie">
+        <input type="submit" value="Search" class="search-submit">
+      </form>
+    </div>
     <div class="movie-list-wrapper">
       <% parsedData.forEach(movie=> { %>
         <div class="movie-div">
